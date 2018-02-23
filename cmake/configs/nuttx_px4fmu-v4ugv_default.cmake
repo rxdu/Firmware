@@ -1,7 +1,6 @@
 
 px4_nuttx_configure(HWCLASS m4 CONFIG nsh ROMFS y ROMFSROOT px4fmu_common)
 
-#set(BOARD px4fmu-v4ugv CACHE string "" FORCE)
 set(config_uavcan_num_ifaces 1)
 
 set(config_module_list

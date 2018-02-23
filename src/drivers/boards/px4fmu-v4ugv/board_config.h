@@ -221,12 +221,12 @@
  *
  * Pins:
  *
- * CH1 : PE14 : TIM1_CH4
- * CH2 : PE13 : TIM1_CH3
- * CH3 : PE11 : TIM1_CH2
- * CH4 : PE9  : TIM1_CH1
- * CH5 : PD13 : TIM4_CH2
- * CH6 : PD14 : TIM4_CH3
+ * CH1 : PE14 : TIM1_CH4	-	INPUT
+ * CH2 : PE13 : TIM1_CH3	-	INPUT	-	HallSensor 2
+ * CH3 : PE11 : TIM1_CH2	-	INPUT	-	HallSensor 1
+ * CH4 : PE9  : TIM1_CH1	-	INPUT	-	HallSensor 0
+ * CH5 : PD13 : TIM4_CH2	-	OUTPUT
+ * CH6 : PD14 : TIM4_CH3	-	OUTPUT
  */
 
 /* N.B. the added pull down, on the timer being disabled the PD
@@ -238,7 +238,7 @@
 #define GPIO_TIM1_CH4OUT             (GPIO_ALT|GPIO_AF1|GPIO_SPEED_50MHz|GPIO_OUTPUT_CLEAR|GPIO_PUSHPULL|GPIO_PULLDOWN|GPIO_PORTE|GPIO_PIN14)
 #define GPIO_TIM4_CH2OUT             (GPIO_ALT|GPIO_AF2|GPIO_SPEED_50MHz|GPIO_OUTPUT_CLEAR|GPIO_PUSHPULL|GPIO_PULLDOWN|GPIO_PORTD|GPIO_PIN13)
 #define GPIO_TIM4_CH3OUT             (GPIO_ALT|GPIO_AF2|GPIO_SPEED_50MHz|GPIO_OUTPUT_CLEAR|GPIO_PUSHPULL|GPIO_PULLDOWN|GPIO_PORTD|GPIO_PIN14)
-#define DIRECT_PWM_OUTPUT_CHANNELS   6
+#define DIRECT_PWM_OUTPUT_CHANNELS   2
 
 #define GPIO_TIM1_CH1IN              GPIO_TIM1_CH1IN_2
 #define GPIO_TIM1_CH2IN              GPIO_TIM1_CH2IN_2
@@ -246,7 +246,7 @@
 #define GPIO_TIM1_CH4IN              GPIO_TIM1_CH4IN_2
 #define GPIO_TIM4_CH2IN              GPIO_TIM4_CH2IN_2
 #define GPIO_TIM4_CH3IN              GPIO_TIM4_CH3IN_2
-#define DIRECT_INPUT_TIMER_CHANNELS  6
+#define DIRECT_INPUT_TIMER_CHANNELS  0
 
 /* USB OTG FS
  *
@@ -300,7 +300,7 @@
 #define SPEKTRUM_RX_AS_UART()       /* Can be left as uart */
 #define SPEKTRUM_OUT(_one_true)      px4_arch_gpiowrite(GPIO_PPM_IN_AS_OUT, (_one_true))
 
-#define    BOARD_NAME "PX4FMU_V4"
+#define    BOARD_NAME "PX4FMU_V4UGV"
 
 /* By Providing BOARD_ADC_USB_CONNECTED (using the px4_arch abstraction)
  * this board support the ADC system_power interface, and therefore

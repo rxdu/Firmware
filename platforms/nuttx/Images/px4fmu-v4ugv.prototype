@@ -4,7 +4,7 @@
     "description": "Firmware for the PX4FMUv4 board on UGV",
     "image": "",
     "build_time": 0,
-    "summary": "PX4FMUv4",
+    "summary": "PX4FMUv4UGV",
     "version": "0.1",
     "image_size": 0,
     "image_maxsize": 2080768,
