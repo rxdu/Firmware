@@ -41,6 +41,8 @@
 #include <uORB/topics/sensor_combined.h>
 #include <uORB/topics/actuator_controls.h>
 
+#include "jlink/jlink_rtt.h"
+
 int RCCarCoordinator::print_usage(const char *reason)
 {
 	if (reason) {
@@ -250,5 +252,6 @@ void RCCarCoordinator::parameters_update(int parameter_update_sub, bool force)
 int rccar_coordinator_main(int argc, char *argv[])
 {
 	PX4_INFO("RC Car Coordinator");
+	JLinkWriteString(0, "RC Car Coordinator");
 	return RCCarCoordinator::main(argc, argv);
 }
