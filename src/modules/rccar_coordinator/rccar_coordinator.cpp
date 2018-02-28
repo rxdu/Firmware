@@ -40,6 +40,7 @@
 #include <uORB/topics/parameter_update.h>
 #include <uORB/topics/sensor_combined.h>
 #include <uORB/topics/actuator_controls.h>
+#include <uORB/topics/vehicle_command.h>
 
 #include "jlink/jlink_rtt.h"
 
@@ -214,15 +215,16 @@ void RCCarCoordinator::run()
 			struct actuator_controls_s raw;
 			/* copy sensors raw data into local buffer */
 			orb_copy(ORB_ID(actuator_controls_3), actuator_group3_sub, &raw);
-			PX4_INFO("Actuator Group 3:\t%6.4f\t%6.4f\t%6.4f\t%6.4f\t%6.4f\t%6.4f\t%6.4f\t%6.4f",
-						(double)raw.control[0],
-						(double)raw.control[1],
-						(double)raw.control[2],
-						(double)raw.control[3],
-						(double)raw.control[4],
-						(double)raw.control[5],
-						(double)raw.control[6],
-						(double)raw.control[7]);
+
+			JLinkRTTPrintf(0, "Actuator Group 3:\t%6d\t%6d\t%6d\t%6d\t%6d\t%6d\t%6d\t%6d\n",
+						(int)(raw.control[0]*100),
+						(int)(raw.control[1]*100),
+						(int)(raw.control[2]*100),
+						(int)(raw.control[3]*100),
+						(int)(raw.control[4]*100),
+						(int)(raw.control[5]*100),
+						(int)(raw.control[6]*100),
+						(int)(raw.control[7]*100));
     	}
 
 		parameters_update(parameter_update_sub);
